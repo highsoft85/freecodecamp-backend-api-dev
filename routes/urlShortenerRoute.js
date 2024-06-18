@@ -78,7 +78,7 @@ function gen_shorturl() {
 router.get('/shorturl/:shorturl', function (req, res) {
   let input    = Number(req.params.shorturl);
   let all_Data = dataManagement('load data');
-  console.log(req.params);
+
   //check if short url already exist
   let shortExist  = all_Data.map(d => d.short_url);
   let check_short = shortExist.includes(input);

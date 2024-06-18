@@ -18,17 +18,19 @@ app.use((req, res, next) => {
 });
 
 app.get('/', function(req, res) {
-  res.sendFile(process.cwd() + '/views/index3.html');
+  res.sendFile(process.cwd() + '/views/index4.html');
 });
 
 const home = require('./routes/homeRoute');
-const timestamp = require('./routes/timestampRoute');
-const headerParser = require('./routes/headerParserRoute');
-const urlShortener = require('./routes/urlShortenerRoute');
+// const timestamp = require('./routes/timestampRoute');
+// const headerParser = require('./routes/headerParserRoute');
+// const urlShortener = require('./routes/urlShortenerRoute');
+const exTracker = require('./routes/exTrackerRoute');
 
 app.use('/api', home);
-app.use('/api', timestamp);
-app.use('/api', headerParser);
-app.use('/api', urlShortener);
+// app.use('/api', timestamp);
+// app.use('/api', headerParser);
+// app.use('/api', urlShortener);
+app.use('/api', exTracker);
 
 module.exports = app;
