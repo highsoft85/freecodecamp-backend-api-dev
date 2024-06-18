@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Basic Configuration 
-//app.use(express.json());
 app.use(cors({ optionsSuccessStatus: 200 })); // some legacy browsers choke on 204 // app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
