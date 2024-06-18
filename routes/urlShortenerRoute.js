@@ -72,20 +72,19 @@ function gen_shorturl() {
     let shortExist  = all_Data.map(d => d.short_url);
     let check_short = shortExist.includes(short);
     if ( check_short ) {gen_shorturl(); } else { return short; }
-  }
-  
+  }  
 }
 
-router.get('/shorturl/*', function (req, res) {
+router.get('/shorturl/:shorturl', function (req, res) {
   let input    = Number(req.params.shorturl);
   let all_Data = dataManagement('load data');
-  
+  console.log(req.params);
   //check if short url already exist
   let shortExist  = all_Data.map(d => d.short_url);
   let check_short = shortExist.includes(input);
   if (check_short && all_Data != undefined) {
     data_found = all_Data[shortExist.indexOf(input)];
-    // res.json({data : data_found, short : input, existing : shortExist});
+
     res.redirect(data_found.original_url);
   }
   else {
